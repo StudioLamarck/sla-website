@@ -1,0 +1,307 @@
+:root {
+  --bg: #fdfdfb;
+  --text: #1a1a1a;
+  --text-muted: #55554f;
+  --accent: #00643c;
+  --accent-dark: #004d2e;
+  --accent-soft: #ebf3ef;
+  --border: #e6e6e0;
+  --max-width: 72rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+.logo:hover {
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.75rem;
+  font-size: 0.95rem;
+}
+
+.site-nav a {
+  color: var(--text-muted);
+}
+
+.site-nav a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Hero */
+.hero {
+  padding: 6rem 0;
+}
+
+.hero-logo {
+  height: clamp(4rem, 10vw, 6rem);
+  width: auto;
+  display: block;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  max-width: 46rem;
+}
+
+.hero p {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 38rem;
+}
+
+.hero .cta {
+  display: inline-block;
+  margin-top: 2.5rem;
+  padding: 0.85rem 1.75rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.hero .cta:hover {
+  background: var(--accent-dark);
+  text-decoration: none;
+}
+
+/* Sections */
+section {
+  padding: 5rem 0;
+}
+
+section + section {
+  border-top: 1px solid var(--border);
+}
+
+.section-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+section h2 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  max-width: 40rem;
+}
+
+section > .container > p {
+  margin-top: 1.25rem;
+  color: var(--text-muted);
+  max-width: 40rem;
+  font-size: 1.05rem;
+}
+
+/* Principles grid */
+.principles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.principle {
+  background: var(--accent-soft);
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.principle .num {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.principle h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.principle p {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+}
+
+/* Projects grid */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.project {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+  background: #fff;
+}
+
+.project-logo {
+  height: 3rem;
+  width: auto;
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.project h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.project p {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+}
+
+.project-teaser {
+  background: transparent;
+  border-style: dashed;
+  border-color: #cfd8d3;
+}
+
+.project-teaser a {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+/* Contact */
+.contact-box {
+  margin-top: 2.5rem;
+}
+
+.contact-box .email {
+  display: inline-block;
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.contact-box .email:hover {
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+/* Legal page */
+.legal {
+  padding: 4rem 0 6rem;
+}
+
+.legal h1 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 3rem;
+}
+
+.legal h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 2.5rem 0 0.75rem;
+}
+
+.legal p {
+  color: var(--text-muted);
+  max-width: 44rem;
+  margin-bottom: 0.75rem;
+}
+
+.legal address {
+  font-style: normal;
+  color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 4.5rem 0 4rem;
+  }
+
+  section {
+    padding: 3.5rem 0;
+  }
+}
