@@ -74,6 +74,21 @@ export default function HomePage() {
                 endroit et les lire en toute simplicité.
               </p>
             </div>
+            <div className="project">
+              <img
+                src="/mymemoires.png"
+                alt=""
+                className="project-logo"
+              />
+              <h3>MyMémoires</h3>
+              <p>
+                MyMémoires est l&apos;application qui révolutionne la
+                transmission familiale en mettant l&apos;intelligence
+                artificielle au service de l&apos;héritage immatériel. Sa
+                mission est simple : permettre à chacun de créer le livre de sa
+                vie, uniquement par la voix.
+              </p>
+            </div>
             <div className="project project-teaser">
               <h3>Et bientôt d&apos;autres…</h3>
               <p>
