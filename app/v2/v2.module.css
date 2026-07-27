@@ -1,0 +1,412 @@
+/* Proposition V2 — styles isolés, aucun impact sur le site actuel. */
+
+.page {
+  --ink: #101410;
+  --muted: #5c615a;
+  --line: #e5e7e1;
+  --deep: #07291d;
+  --mint: #8fd0ae;
+}
+
+.wrap {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.draft {
+  background: #16211b;
+  color: #cfe3d8;
+  font-size: 0.82rem;
+  text-align: center;
+  padding: 0.6rem 1rem;
+  letter-spacing: 0.02em;
+}
+
+.draft a {
+  color: var(--mint);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 6rem 0 4rem;
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+
+.h1 {
+  font-size: clamp(2.6rem, 7.5vw, 5rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.lede {
+  margin-top: 1.75rem;
+  font-size: clamp(1.1rem, 2.1vw, 1.3rem);
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 36rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 2.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.95rem 2rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background: var(--accent-dark);
+  text-decoration: none;
+}
+
+.btnGhost {
+  display: inline-block;
+  padding: 0.95rem 2rem;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.btnGhost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.herd {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 4rem;
+}
+
+.near {
+  fill: var(--ink);
+}
+
+.far {
+  fill: #b9c1ba;
+}
+
+/* ---------- Le pacte ---------- */
+.pacte {
+  background: var(--deep);
+  padding: 5rem 0;
+}
+
+.labelLight {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--mint);
+  margin-bottom: 1rem;
+}
+
+.h2Light {
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff;
+  line-height: 1.1;
+}
+
+.pacteGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.tile {
+  border-top: 2px solid rgba(143, 208, 174, 0.35);
+  padding-top: 1.5rem;
+}
+
+.tileNum {
+  display: block;
+  font-size: clamp(2.4rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--mint);
+  line-height: 1;
+  margin-bottom: 0.9rem;
+}
+
+.tile strong {
+  display: block;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.tile span:last-child {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
+
+/* ---------- Sections claires ---------- */
+.section {
+  padding: 5.5rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 1.1rem;
+}
+
+.label::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  flex: none;
+}
+
+.h2 {
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.13;
+  max-width: 42rem;
+  color: var(--ink);
+}
+
+.intro {
+  margin-top: 1.4rem;
+  color: var(--muted);
+  max-width: 42rem;
+  font-size: 1.06rem;
+}
+
+.three {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+/* Contre quoi */
+.contre {
+  border-left: 3px solid var(--accent);
+  padding-left: 1.5rem;
+}
+
+.contre h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.7rem;
+  color: var(--ink);
+}
+
+.contre p {
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+/* Parcours */
+.phaseArt {
+  display: block;
+  width: 100%;
+  max-width: 9rem;
+  height: auto;
+  margin-bottom: 1.25rem;
+}
+
+.phaseNum {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  margin-bottom: 0.9rem;
+}
+
+.phase h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.6rem;
+  color: var(--ink);
+}
+
+.phase p {
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+/* Promo codev */
+.promo {
+  margin-top: 4rem;
+  padding: 2.5rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background: #fff;
+}
+
+.promo h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  margin-bottom: 0.6rem;
+  color: var(--ink);
+}
+
+.promo p {
+  color: var(--muted);
+  max-width: 38rem;
+}
+
+/* Le collectif */
+.avatar {
+  display: block;
+  width: 100%;
+  max-width: 7.5rem;
+  height: auto;
+  fill: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.membre h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+
+.membre p {
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+/* Projets */
+.projet {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 2rem;
+  background: #fff;
+}
+
+.logo {
+  height: 2.75rem;
+  width: auto;
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.projet h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+
+.projet p {
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.projetVide {
+  background: transparent;
+  border-style: dashed;
+  border-color: #ccd6cf;
+}
+
+.projetVide a {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+/* Contact */
+.contact {
+  background: var(--deep);
+  border-radius: 20px;
+  padding: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.contact p {
+  margin-top: 1.2rem;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 36rem;
+  font-size: 1.06rem;
+}
+
+.mail {
+  display: inline-block;
+  margin-top: 2.5rem;
+  background: #fff;
+  color: var(--accent-dark);
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+}
+
+.mail:hover {
+  background: var(--accent-soft);
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 3.5rem 0 3rem;
+  }
+
+  .section,
+  .pacte {
+    padding: 3.5rem 0;
+  }
+
+  .actions .btn,
+  .actions .btnGhost,
+  .promo .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .promo {
+    padding: 1.75rem;
+  }
+}

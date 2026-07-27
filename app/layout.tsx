@@ -1,6 +1,13 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { Manrope } from "next/font/google"
 import "./globals.css"
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans",
+})
 
 export const metadata: Metadata = {
   title: {
@@ -8,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s — Studio Lamarck",
   },
   description:
-    "Studio Lamarck promeut l'innovation technologique, soutient la création numérique indépendante et accompagne les porteurs de projets dans la conception et le développement d'outils digitaux.",
+    "Studio associatif de développement de projets dédié à l'innovation technologique et à la création numérique indépendante. Nous accompagnons les porteurs de projets.",
 }
 
 export default function RootLayout({
@@ -17,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="fr">
+    <html lang="fr" className={manrope.variable}>
       <body>
         <header className="site-header">
           <div className="container">
@@ -26,6 +33,8 @@ export default function RootLayout({
             </Link>
             <nav className="site-nav">
               <Link href="/#principes">Principes</Link>
+              <Link href="/#builders">Builders</Link>
+              <Link href="/codev">Codev</Link>
               <Link href="/#projets">Projets</Link>
               <Link href="/#contact">Contact</Link>
             </nav>
@@ -38,7 +47,10 @@ export default function RootLayout({
               © {new Date().getFullYear()} Studio Lamarck — Tous droits
               réservés
             </span>
-            <Link href="/mentions-legales">Mentions légales</Link>
+            <div className="footer-links">
+              <Link href="/codev">La méthode codev</Link>
+              <Link href="/mentions-legales">Mentions légales</Link>
+            </div>
           </div>
         </footer>
       </body>

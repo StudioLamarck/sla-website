@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 export default function HomePage() {
   return (
     <>
@@ -11,13 +13,18 @@ export default function HomePage() {
             />
           </h1>
           <p>
-            Studio Lamarck est un studio de développement de projets dédié à
-            l&apos;innovation technologique et à la création numérique
+            Studio Lamarck est un studio associatif de développement de projets
+            dédié à l&apos;innovation technologique et à la création numérique
             indépendante.
           </p>
-          <a href="#contact" className="cta">
-            Nous contacter
-          </a>
+          <div className="hero-actions">
+            <a href="#contact" className="cta">
+              Nous contacter
+            </a>
+            <a href="#builders" className="cta-ghost">
+              Découvrir le parcours
+            </a>
+          </div>
         </div>
       </div>
 
@@ -54,6 +61,121 @@ export default function HomePage() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="builders">
+        <div className="container">
+          <p className="section-label">Les builders</p>
+          <h2>Vous n&apos;êtes pas obligé de construire seul</h2>
+          <p>
+            La motivation qui retombe, une décision qui traîne depuis trois
+            semaines, une idée qu&apos;on n&apos;a jamais confrontée à personne :
+            tous les builders connaissent ça. Studio Lamarck existe pour ces
+            moments-là. Voici les trois phases du parcours, et ce qu&apos;on
+            apporte à chacune.
+          </p>
+          <div className="phases">
+            <div className="phase">
+              <div className="phase-marker">
+                <span className="phase-num">01</span>
+              </div>
+              <h3>Vous avez une idée</h3>
+              <p className="phase-context">
+                Seul face à votre intuition. Est-ce que ça vaut quelque chose ?
+                Par où commencer ? À qui en parler ?
+              </p>
+              <p className="phase-lead">Ce qu&apos;on apporte</p>
+              <ul className="phase-list">
+                <li>
+                  Une réponse à votre message — on répond à tout le monde, en
+                  général sous une semaine
+                </li>
+                <li>Un regard extérieur qui challenge l&apos;idée</li>
+                <li>Une méthode concrète pour se lancer</li>
+                <li>
+                  Un pitch devant des membres : des questions, des retours, et
+                  notre décision
+                </li>
+              </ul>
+            </div>
+            <div className="phase">
+              <div className="phase-marker">
+                <span className="phase-num">02</span>
+              </div>
+              <h3>Vous construisez, avec le collectif</h3>
+              <p className="phase-context">
+                Vous construisez vous-même — avec l&apos;IA s&apos;il le faut —
+                et vous cherchez votre product-market fit sans engagement de
+                coût.
+              </p>
+              <p className="phase-lead">Ce qu&apos;on apporte</p>
+              <ul className="phase-list">
+                <li>
+                  Des <Link href="/codev">sessions de codev</Link> régulières,
+                  pour ne plus avancer seul
+                </li>
+                <li>
+                  Nos infrastructures mutualisées et nos outils d&apos;IA, pour
+                  une cotisation de 0 €
+                </li>
+                <li>
+                  L&apos;hébergement, la sécurité, le déploiement : on passe ces
+                  caps avec vous
+                </li>
+                <li>
+                  La publication sous nos comptes de stores, sans compte
+                  développeur à ouvrir
+                </li>
+                <li>
+                  100 % de la propriété intellectuelle reste à vous,
+                  définitivement
+                </li>
+              </ul>
+            </div>
+            <div className="phase">
+              <div className="phase-marker">
+                <span className="phase-num">03</span>
+              </div>
+              <h3>Vous volez de vos propres ailes</h3>
+              <p className="phase-context">
+                Le produit a trouvé son public et vous voulez en vivre. C&apos;est
+                le signe qu&apos;il est temps de sortir du studio.
+              </p>
+              <p className="phase-lead">Ce qu&apos;on apporte</p>
+              <ul className="phase-list">
+                <li>Le passage du modèle économique à l&apos;échelle réelle</li>
+                <li>
+                  Un départ quand vous le décidez : 30 jours de préavis, et vous
+                  emportez tout
+                </li>
+                <li>
+                  Un coup de pouce financier pour vos premiers mois
+                  d&apos;indépendance
+                </li>
+                <li>
+                  Une place de conseiller dans le collectif, de l&apos;autre côté
+                  du miroir
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="codev-promo">
+            <div className="codev-promo-body">
+              <span className="promo-label">Notre méthode</span>
+              <h3>Les sessions de codev</h3>
+              <p>
+                Régulièrement, un builder expose un blocage et le groupe
+                l&apos;aide à y voir clair. Six temps, trois rôles, sept
+                principes — c&apos;est le cœur de ce qu&apos;on apporte.
+              </p>
+            </div>
+            <Link href="/codev" className="cta">
+              Découvrir la méthode
+            </Link>
+          </div>
+
         </div>
       </section>
 
@@ -103,12 +225,14 @@ export default function HomePage() {
 
       <section id="contact">
         <div className="container">
-          <p className="section-label">Contact</p>
-          <h2>Un projet, une question ?</h2>
-          <p>
-            Écrivez-nous, nous vous répondrons dans les meilleurs délais.
-          </p>
-          <div className="contact-box">
+          <div className="contact-panel">
+            <p className="section-label">Contact</p>
+            <h2>Un projet, une question ?</h2>
+            <p>
+              Racontez-nous votre idée en quelques lignes et laissez-nous de
+              quoi vous joindre. On répond à tout le monde, en général sous une
+              semaine.
+            </p>
             <a href="mailto:contact@studiolamarck.fr" className="email">
               contact@studiolamarck.fr
             </a>

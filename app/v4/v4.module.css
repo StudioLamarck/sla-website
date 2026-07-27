@@ -1,0 +1,559 @@
+/* Proposition V4 — Lamarck Straight to the Point. */
+
+.page {
+  --green: #00643c;
+  --green-deep: #004a2c;
+  --ink: #0b0f0c;
+  --paper: #f1efe6;
+  --mint: #8fd0ae;
+  --dimlight: #9aa79d;
+  --dimdark: #4a5148;
+
+  --display: var(--v3-display), "Archivo Black", "Arial Black", sans-serif;
+  --mono: var(--v3-mono), "Space Mono", ui-monospace, monospace;
+
+  background: var(--ink);
+  color: var(--paper);
+  overflow-x: hidden;
+  font-family: var(--mono);
+}
+
+.draft {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--dimlight);
+  background: var(--ink);
+  padding: 0.85rem 1.5rem;
+  border-bottom: 1px solid #1a221c;
+}
+
+.draft a {
+  color: var(--mint);
+  text-decoration: underline;
+}
+
+/* ---------- Cartouche logo ---------- */
+.logoBadge {
+  display: inline-flex;
+  align-items: center;
+  background: var(--paper);
+  border-radius: 12px;
+  padding: 0.9rem 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.logoBadge img {
+  height: 2.5rem;
+  width: auto;
+  display: block;
+}
+
+/* ---------- Plaque Metro ---------- */
+.plaque {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--paper);
+  border-radius: 999px;
+  padding: 0.5rem 1.3rem 0.5rem 0.5rem;
+}
+
+.bullet {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--green);
+  color: var(--paper);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--display);
+  font-size: 0.85rem;
+  flex: none;
+}
+
+.plaqueText {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--green);
+}
+
+/* ---------- Micro-labels ---------- */
+.tag,
+.tagDark {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  margin-bottom: 2rem;
+  display: block;
+}
+
+.tag {
+  color: var(--mint);
+}
+
+.tagDark {
+  color: var(--green);
+}
+
+/* ---------- Titres ---------- */
+.giant {
+  font-family: var(--display);
+  font-size: clamp(3rem, 10vw, 8.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--paper);
+  margin-top: 2rem;
+}
+
+.outline {
+  font-style: normal;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--paper);
+  paint-order: stroke fill;
+}
+
+.big,
+.bigDark {
+  font-family: var(--display);
+  font-size: clamp(2rem, 6vw, 4.8rem);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.big {
+  color: var(--paper);
+}
+
+.bigDark {
+  color: var(--ink);
+}
+
+.green {
+  color: var(--green);
+  font-style: normal;
+}
+
+.greenFill {
+  fill: var(--green);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  background: var(--green);
+  padding: clamp(3rem, 8vw, 6rem) 1.5rem clamp(3.5rem, 7vw, 6rem);
+  overflow: hidden;
+}
+
+.heroInner {
+  max-width: 80rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.heroFoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  border-top: 1px solid rgba(241, 239, 230, 0.25);
+  padding-top: 2rem;
+}
+
+.heroFoot p {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(241, 239, 230, 0.9);
+  max-width: 36rem;
+}
+
+.heroLlama {
+  position: absolute;
+  right: -2%;
+  bottom: -4%;
+  width: clamp(12rem, 28vw, 26rem);
+  height: auto;
+  fill: var(--green-deep);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* ---------- Boutons ---------- */
+.btnCream {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  padding: 1.1rem 2.2rem;
+  display: inline-block;
+  white-space: nowrap;
+  background: var(--paper);
+  color: var(--green);
+  border: 2px solid var(--paper);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btnCream:hover {
+  background: transparent;
+  color: var(--paper);
+}
+
+.btnOutline {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  padding: 1.1rem 2.2rem;
+  display: inline-block;
+  white-space: nowrap;
+  background: transparent;
+  color: var(--paper);
+  border: 2px solid var(--paper);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btnOutline:hover {
+  background: var(--paper);
+  color: var(--green);
+}
+
+/* ---------- Ticker ---------- */
+.ticker {
+  background: var(--ink);
+  color: var(--mint);
+  overflow: hidden;
+  padding: 1.1rem 0;
+  border-top: 1px solid #1a221c;
+  border-bottom: 1px solid #1a221c;
+}
+
+.tickerTrack {
+  display: flex;
+  width: max-content;
+  animation: slide 30s linear infinite;
+}
+
+.tickerRun {
+  display: flex;
+  align-items: center;
+}
+
+.tickerItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-family: var(--display);
+  font-size: clamp(1rem, 2.2vw, 1.7rem);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  padding-right: 1.5rem;
+}
+
+.tickerLlama {
+  width: 1.4em;
+  height: auto;
+  fill: var(--mint);
+  flex: none;
+}
+
+@keyframes slide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- Blocs & Sections ---------- */
+.paper,
+.ink,
+.greenBlock {
+  padding: clamp(3.5rem, 8vw, 7rem) 1.5rem;
+}
+
+.paper > *,
+.ink > *,
+.greenBlock > * {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.paper {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.ink {
+  background: var(--ink);
+  background-image: radial-gradient(#1b241d 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.greenBlock {
+  background: var(--green);
+  color: var(--paper);
+}
+
+.chapo,
+.chapoLight {
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  max-width: 44rem;
+  margin-top: 1.5rem;
+}
+
+.chapo {
+  color: var(--dimdark);
+}
+
+.chapoLight {
+  color: rgba(241, 239, 230, 0.85);
+}
+
+/* ---------- Piliers ---------- */
+.piliersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.pilierCard {
+  background: rgba(11, 15, 12, 0.04);
+  border: 1px solid rgba(11, 15, 12, 0.12);
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pilierNum {
+  font-family: var(--display);
+  font-size: 2.2rem;
+  color: var(--green);
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.pilierTitle {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+  color: var(--ink);
+}
+
+.pilierText {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--dimdark);
+}
+
+/* ---------- Jam Session ---------- */
+.jamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+
+.jamCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 1.75rem;
+}
+
+.jamNum {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--mint);
+  letter-spacing: 0.14em;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.jamTitle {
+  font-family: var(--display);
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  margin-bottom: 0.5rem;
+}
+
+.jamText {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--dimlight);
+}
+
+/* ---------- Parcours ---------- */
+.parcoursGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+.stationCard {
+  background: #fff;
+  border: 2px solid var(--green);
+  border-radius: 16px;
+  padding: 2.2rem;
+  position: relative;
+}
+
+.stationBadge {
+  position: absolute;
+  top: -1.2rem;
+  left: 2rem;
+  background: var(--green);
+  color: var(--paper);
+  font-family: var(--display);
+  font-size: 0.9rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+}
+
+.stationTitle {
+  font-family: var(--display);
+  font-size: 1.35rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+  color: var(--ink);
+}
+
+.stationText {
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--dimdark);
+}
+
+/* ---------- Projets ---------- */
+.projetsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.projetCard {
+  background: #141c16;
+  border: 1px solid #232b24;
+  border-radius: 14px;
+  padding: 2rem;
+}
+
+.projetHeader {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.projetLogo {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 10px;
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex: none;
+}
+
+.projetLogo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.projetTitle {
+  font-family: var(--display);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+.projetText {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--dimlight);
+}
+
+.projetCardFree {
+  background: transparent;
+  border: 2px dashed #28352b;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.projetCardFree .projetTitle {
+  color: var(--mint);
+}
+
+/* ---------- Contact ---------- */
+.mail {
+  display: inline-block;
+  margin-top: 2.5rem;
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 5vw, 3.8rem);
+  letter-spacing: -0.04em;
+  color: var(--paper);
+  word-break: break-word;
+  border-bottom: 4px solid transparent;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+
+.mail:hover {
+  border-bottom-color: var(--paper);
+}
+
+.signature {
+  margin-top: 3.5rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .parcoursGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .btnCream,
+  .btnOutline {
+    width: 100%;
+    text-align: center;
+  }
+
+  .heroFoot {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

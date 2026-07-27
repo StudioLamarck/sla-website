@@ -1,0 +1,746 @@
+/* Proposition V5 — Animation dynamique du Métro & Marche des Lamas avec profondeur. */
+
+.page {
+  --green-l12: #00643c;
+  --green-deep: #004227;
+  --green-tag: #00e65c;
+  --blue-enamel: #002266;
+  --blue-dark: #001440;
+  --yellow-accent: #f7d100;
+  --white-tile: #f8f8f5;
+  --tile-border: rgba(0, 0, 0, 0.07);
+  --ink: #111814;
+  --dim: #556059;
+
+  --font-heading: var(--v5-work-sans), "Work Sans", "Fira Sans", sans-serif;
+  --font-mono: var(--v5-mono), "Space Mono", monospace;
+  --font-body: var(--v5-sans), "Plus Jakarta Sans", sans-serif;
+
+  background-color: var(--white-tile);
+  background-image: 
+    linear-gradient(to right, var(--tile-border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--tile-border) 1px, transparent 1px);
+  background-size: 52px 26px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Zone Métro & Quais */
+.stationStage {
+  position: relative;
+  width: 100%;
+  padding-bottom: 3.5rem;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.railTrack {
+  position: relative;
+  width: 100%;
+  height: 54px;
+  background: #141815;
+  border-top: 4px solid #28302b;
+  border-bottom: 4px solid #28302b;
+  overflow: hidden;
+  margin: 0;
+}
+
+.railLines {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: repeating-linear-gradient(90deg, #666, #666 16px, transparent 16px, transparent 32px);
+  transform: translateY(-50%);
+}
+
+/* Train du Métro */
+.metroTrain {
+  position: absolute;
+  top: 4px;
+  left: -700px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: trainArriveAndStop 22s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  z-index: 15;
+}
+
+@keyframes trainArriveAndStop {
+  0% {
+    left: -700px;
+  }
+  16% {
+    left: calc(50% - 280px);
+  }
+  68% {
+    left: calc(50% - 280px);
+  }
+  88% {
+    left: 110vw;
+  }
+  100% {
+    left: 110vw;
+  }
+}
+
+.metroCar {
+  position: relative;
+  background: var(--green-l12);
+  border: 3px solid #ffffff;
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+  min-width: 175px;
+  height: 44px;
+}
+
+.metroHeadlight {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--yellow-accent);
+  box-shadow: 0 0 10px var(--yellow-accent);
+  flex: none;
+}
+
+.metroWindow {
+  width: 18px;
+  height: 14px;
+  background: #bce7ff;
+  border-radius: 3px;
+  flex: none;
+}
+
+/* Portes coulissantes du Métro */
+.doorFrame {
+  position: relative;
+  width: 32px;
+  height: 28px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.doorLeft,
+.doorRight {
+  width: 50%;
+  height: 100%;
+  background: #004a2c;
+  border: 1px solid #fff;
+  transition: transform 0.6s ease;
+  animation: doorsOpenClose 22s ease infinite;
+}
+
+@keyframes doorsOpenClose {
+  0%, 18% {
+    transform: translateX(0);
+  }
+  22%, 64% {
+    transform: translateX(-100%);
+  }
+  68%, 100% {
+    transform: translateX(0);
+  }
+}
+
+.doorRight {
+  animation-name: doorsOpenCloseRight;
+}
+
+@keyframes doorsOpenCloseRight {
+  0%, 18% {
+    transform: translateX(0);
+  }
+  22%, 64% {
+    transform: translateX(100%);
+  }
+  68%, 100% {
+    transform: translateX(0);
+  }
+}
+
+/* Platform & Llama Walk-Off Area */
+.platformArea {
+  position: relative;
+  width: 100%;
+  height: 95px;
+  margin-top: 2px;
+  pointer-events: none;
+}
+
+/* Animated Walking Llamas */
+.walkingLlama {
+  position: absolute;
+  top: 0;
+  width: 26px;
+  height: 26px;
+  fill: var(--green-l12);
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.18));
+  animation: llamaStepAndWalk var(--walk-duration) ease-in-out var(--walk-delay) forwards;
+  opacity: 0;
+}
+
+@keyframes llamaStepAndWalk {
+  0% {
+    opacity: 0;
+    transform: translate(var(--start-x), var(--start-y)) scale(calc(var(--llama-scale) * 0.6));
+  }
+  8% {
+    opacity: 1;
+    transform: translate(var(--start-x), var(--end-y)) scale(var(--llama-scale));
+  }
+  15% {
+    opacity: 1;
+    transform: translate(var(--start-x), var(--end-y)) scale(var(--llama-scale));
+  }
+  100% {
+    opacity: 1;
+    transform: translate(var(--end-x), var(--end-y)) scale(var(--llama-scale));
+  }
+}
+
+/* Stride Bobbing Animation for legs/body */
+.walkingLlama svg {
+  animation: strideBob 0.32s ease-in-out infinite alternate;
+}
+
+@keyframes strideBob {
+  from {
+    transform: translateY(0px) rotate(0deg);
+  }
+  to {
+    transform: translateY(-3px) rotate(2deg);
+  }
+}
+
+/* Header */
+.header {
+  max-width: 84rem;
+  margin: 1rem auto 0;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.plaqueBadge {
+  background: var(--blue-enamel);
+  border: 3px solid #ffffff;
+  outline: 3px solid var(--blue-dark);
+  border-radius: 12px;
+  padding: 0.8rem 1.8rem;
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 34, 102, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.plaqueBadge img {
+  height: 2.4rem;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--green-l12);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(0, 100, 60, 0.2);
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+/* Hero Section */
+.hero {
+  max-width: 84rem;
+  margin: 2rem auto 3.5rem;
+  padding: 0 1.5rem;
+}
+
+.heroCard {
+  background: #ffffff;
+  border: 3px solid var(--green-l12);
+  border-radius: 24px;
+  padding: clamp(3rem, 7vw, 5rem) clamp(1.75rem, 5vw, 4rem);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0, 100, 60, 0.09);
+}
+
+.heroTag {
+  display: inline-block;
+  background: var(--yellow-accent);
+  color: #000;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 0.4rem 1rem;
+  border: 2px solid #000;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  box-shadow: 3px 3px 0px #000;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 8vw, 6.2rem);
+  font-weight: 800;
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  position: relative;
+  z-index: 2;
+}
+
+.titleGreen {
+  color: var(--green-l12);
+}
+
+.heroSub {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  line-height: 1.75;
+  color: var(--dim);
+  max-width: 42rem;
+  margin: 2rem 0 2.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.heroBtns {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+.btnGreen {
+  background: var(--green-l12);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 1.1rem 2.2rem;
+  border-radius: 8px;
+  border: 2px solid var(--green-deep);
+  text-decoration: none;
+  box-shadow: 4px 4px 0px var(--blue-enamel);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.btnGreen:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--blue-enamel);
+  background: #007a4a;
+}
+
+.btnBlue {
+  background: var(--blue-enamel);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 1.1rem 2.2rem;
+  border-radius: 8px;
+  border: 2px solid #000;
+  text-decoration: none;
+  box-shadow: 4px 4px 0px var(--green-l12);
+  transition: all 0.2s ease;
+}
+
+.btnBlue:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--green-l12);
+}
+
+.heroLlamaArt {
+  position: absolute;
+  right: -3%;
+  bottom: -6%;
+  width: clamp(16rem, 34vw, 30rem);
+  height: auto;
+  fill: var(--green-l12);
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Sections */
+.section {
+  max-width: 84rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  position: relative;
+}
+
+.sectionTag {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--green-l12);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.sectionSub {
+  font-size: 1.05rem;
+  color: var(--dim);
+  max-width: 40rem;
+  margin-top: 1rem;
+  line-height: 1.7;
+}
+
+/* Piliers Grid */
+.piliersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1.75rem;
+  margin-top: 3.5rem;
+}
+
+.pilierPlaque {
+  background: #ffffff;
+  border: 3px solid var(--blue-enamel);
+  border-radius: 16px;
+  padding: 2.25rem;
+  box-shadow: 0 8px 24px rgba(0, 34, 102, 0.08);
+  transition: all 0.2s ease;
+}
+
+.pilierPlaque:hover {
+  transform: translateY(-4px);
+  border-color: var(--green-l12);
+  box-shadow: 0 12px 30px rgba(0, 100, 60, 0.15);
+}
+
+.pilierNumBadge {
+  background: var(--blue-enamel);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.35rem 0.8rem;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
+
+.pilierTitle {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+
+.pilierText {
+  font-size: 0.9rem;
+  color: var(--dim);
+  line-height: 1.65;
+}
+
+/* Jam Sessions */
+.jamStation {
+  background: var(--blue-enamel);
+  border: 4px solid #fff;
+  outline: 4px solid var(--blue-dark);
+  border-radius: 24px;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.75rem, 5vw, 4rem);
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 34, 102, 0.3);
+  color: #fff;
+}
+
+.jamStation .sectionTag {
+  color: var(--yellow-accent);
+}
+
+.jamStation .sectionTitle {
+  color: #fff;
+}
+
+.jamStation .sectionSub {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.jamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+}
+
+.jamCard {
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1.75rem;
+  transition: all 0.2s ease;
+}
+
+.jamCard:hover {
+  background: rgba(0, 100, 60, 0.4);
+  border-color: var(--green-tag);
+}
+
+.jamTagNum {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--yellow-accent);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.jamTitle {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 0.6rem;
+}
+
+.jamText {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+/* Parcours */
+.parcoursGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+.stationPlaque {
+  background: #ffffff;
+  border: 3px solid var(--green-l12);
+  border-radius: 16px;
+  padding: 2.25rem;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(0, 100, 60, 0.08);
+}
+
+.stationHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.stationBullet {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--green-l12);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stationTagText {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--green-l12);
+}
+
+.stationTitle {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+
+.stationText {
+  font-size: 0.9rem;
+  color: var(--dim);
+  line-height: 1.65;
+}
+
+/* Projets */
+.projetsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1.75rem;
+  margin-top: 3.5rem;
+}
+
+.projetCard {
+  background: #ffffff;
+  border: 3px solid var(--blue-enamel);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(0, 34, 102, 0.08);
+  transition: all 0.2s ease;
+}
+
+.projetCard:hover {
+  border-color: var(--green-l12);
+  transform: translateY(-4px);
+}
+
+.projetLogo {
+  width: 3.8rem;
+  height: 3.8rem;
+  background: var(--white-tile);
+  border: 2px solid var(--blue-enamel);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.projetLogo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.projetTitle {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.projetText {
+  font-size: 0.9rem;
+  color: var(--dim);
+  line-height: 1.65;
+  margin-top: 0.5rem;
+}
+
+.projetFree {
+  background: transparent;
+  border: 3px dashed var(--green-l12);
+}
+
+.projetFree .projetTitle {
+  color: var(--green-l12);
+}
+
+/* Contact Wall */
+.contactStation {
+  background: var(--green-l12);
+  border: 4px solid #fff;
+  outline: 4px solid var(--green-deep);
+  border-radius: 24px;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.75rem, 5vw, 4rem);
+  margin-bottom: 4rem;
+  position: relative;
+  box-shadow: 0 15px 45px rgba(0, 100, 60, 0.25);
+  color: #fff;
+}
+
+.contactStation .sectionTag {
+  color: var(--yellow-accent);
+}
+
+.contactStation .sectionTitle {
+  color: #fff;
+}
+
+.contactMail {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 5.5vw, 4rem);
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 2rem;
+  border-bottom: 4px solid var(--yellow-accent);
+  transition: all 0.2s ease;
+}
+
+.contactMail:hover {
+  color: var(--yellow-accent);
+}
+
+.footer {
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--dim);
+  background: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .parcoursGrid {
+    grid-template-columns: 1fr;
+  }
+}
