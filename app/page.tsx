@@ -159,8 +159,12 @@ const projets: ProjectItem[] = [
     url: "https://www.simplelttr.app/",
     createurs: [
       {
-        prenom: "Emile",
+        prenom: "Émile",
         photo: "/emile.png",
+        socials: {
+          linkedin: "https://www.linkedin.com/in/emilerey/",
+          github: "https://github.com/emilery",
+        },
       },
     ],
   },
