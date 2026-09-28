@@ -32,9 +32,9 @@ export default function RootLayout({
               Studio Lamarck
             </Link>
             <nav className="site-nav">
-              <Link href="/#principes">Principes</Link>
-              <Link href="/#builders">Builders</Link>
-              <Link href="/codev">Codev</Link>
+              <Link href="/#piliers">Piliers</Link>
+              <Link href="/jam-session">Jam Session</Link>
+              <Link href="/#parcours">Parcours</Link>
               <Link href="/#projets">Projets</Link>
               <Link href="/#contact">Contact</Link>
             </nav>
@@ -48,7 +48,7 @@ export default function RootLayout({
               réservés
             </span>
             <div className="footer-links">
-              <Link href="/codev">La méthode codev</Link>
+              <Link href="/jam-session">Jam Session</Link>
               <Link href="/mentions-legales">Mentions légales</Link>
             </div>
           </div>

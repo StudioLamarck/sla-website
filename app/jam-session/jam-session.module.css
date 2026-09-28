@@ -1,0 +1,811 @@
+.page {
+  padding: 2.5rem 0 5rem;
+}
+
+.wrap {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ---------- Badge & Hero ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+}
+
+.badgeDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 3rem;
+  align-items: center;
+  padding-bottom: 4.5rem;
+}
+
+@media (max-width: 960px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.heroText {
+  max-width: 44rem;
+}
+
+.h1 {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+
+.lead {
+  font-size: clamp(1.12rem, 2.1vw, 1.25rem);
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.55;
+  margin-bottom: 1rem;
+}
+
+.introText {
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.98rem;
+  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 100, 60, 0.18);
+}
+
+.btnPrimary:hover {
+  background: var(--accent-dark);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  transition: all 0.2s ease;
+}
+
+.btnGhost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ---------- JamCircle Illustration & Animations ---------- */
+.jamIllusWrapper {
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.jamIllusSvg {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  height: auto;
+  margin: 0 auto;
+  overflow: visible;
+  user-select: none;
+}
+
+.jamLlamaNode {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.jamLlamaNode:hover {
+  transform: translateY(-2px);
+}
+
+.speakerLlama {
+  fill: var(--accent);
+  transition: fill 0.3s ease;
+  filter: drop-shadow(0 4px 6px rgba(0, 100, 60, 0.18));
+}
+
+.listenerLlama {
+  fill: var(--text);
+  opacity: 0.85;
+  transition: fill 0.3s ease, opacity 0.3s ease;
+}
+
+.listenerLlama:hover {
+  opacity: 1;
+  fill: var(--accent);
+}
+
+.speakerExcited {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: cartoonExcited 0.74s cubic-bezier(0.2, 0.8, 0.4, 1) infinite;
+}
+
+@keyframes cartoonExcited {
+  0%, 100% { transform: translateY(0) scale(1, 1); }
+  16% { transform: translateY(-3px) scale(0.96, 1.05); }
+  30% { transform: translateY(0.6px) scale(1.04, 0.96); }
+  44% { transform: translateY(-6px) scale(0.93, 1.1); }
+  66% { transform: translateY(-2px) scale(1.08, 1.06); }
+  84% { transform: translateY(0.7px) scale(1.05, 0.95); }
+}
+
+.speakerEmphatic {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: cartoonEmphatic 1.12s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+}
+
+@keyframes cartoonEmphatic {
+  0%, 100% { transform: translateY(0) scale(1, 1); }
+  22% { transform: translateY(-4.8px) scale(1.08, 1.09); }
+  42% { transform: translateY(-1.2px) scale(1.04, 1.03); }
+  60% { transform: translateY(-3.8px) scale(0.96, 1.06); }
+  76% { transform: translateY(0.4px) scale(1.03, 0.97); }
+  88% { transform: translateY(-1.6px) scale(1.02, 1.03); }
+}
+
+.speakerChatter {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: cartoonChatter 0.52s ease-in-out infinite;
+}
+
+@keyframes cartoonChatter {
+  0%, 100% { transform: translateY(0) scale(1, 1); }
+  24% { transform: translateY(-3.2px) scale(1.03, 1.06); }
+  50% { transform: translateY(0.4px) scale(0.98, 0.98); }
+  74% { transform: translateY(-1.9px) scale(1.02, 1.03); }
+}
+
+.speakerBouncy {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: cartoonBouncy 0.86s cubic-bezier(0.34, 1.35, 0.64, 1) infinite;
+}
+
+@keyframes cartoonBouncy {
+  0%, 100% { transform: translateY(0) scale(1, 1); }
+  14% { transform: translateY(0.8px) scale(1.07, 0.93); }
+  36% { transform: translateY(-6.2px) scale(0.92, 1.11); }
+  60% { transform: translateY(0.6px) scale(1.06, 0.95); }
+  80% { transform: translateY(-2.2px) scale(0.98, 1.04); }
+}
+
+.speechBubbleAnim {
+  animation: popInBubble 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  transform-origin: 0 5.4px;
+}
+
+@keyframes popInBubble {
+  0% { opacity: 0; transform: scale(0.2); }
+  75% { transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.bubbleDot1, .bubbleDot2, .bubbleDot3 {
+  animation: cartoonDotWave 0.95s infinite ease-in-out;
+}
+.bubbleDot1 { animation-delay: 0s; }
+.bubbleDot2 { animation-delay: 0.18s; }
+.bubbleDot3 { animation-delay: 0.36s; }
+
+@keyframes cartoonDotWave {
+  0%, 100% { transform: translateY(0); fill: #111613; opacity: 0.85; }
+  35% { transform: translateY(-1.8px); fill: #008751; opacity: 1; }
+  70% { transform: translateY(0.3px); fill: #111613; opacity: 0.85; }
+}
+
+/* ---------- Sections communes ---------- */
+.section {
+  padding: 4.5rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 0.9rem;
+}
+
+.label::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  flex: none;
+}
+
+.h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+.intro {
+  margin-top: 0.75rem;
+  color: var(--text-muted);
+  max-width: 44rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* ---------- Section 1 : 5 Principes en quinconce ---------- */
+.principlesGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.principleCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.principleCard:hover {
+  transform: translateY(-3px);
+  border-color: #c8d8cf;
+  box-shadow: 0 12px 30px rgba(9, 52, 37, 0.06);
+}
+
+.principleCard:nth-child(1),
+.principleCard:nth-child(2) {
+  grid-column: span 3;
+}
+
+.principleCard:nth-child(3),
+.principleCard:nth-child(4),
+.principleCard:nth-child(5) {
+  grid-column: span 2;
+}
+
+@media (max-width: 860px) {
+  .principlesGrid {
+    grid-template-columns: 1fr;
+  }
+  .principleCard:nth-child(1),
+  .principleCard:nth-child(2),
+  .principleCard:nth-child(3),
+  .principleCard:nth-child(4),
+  .principleCard:nth-child(5) {
+    grid-column: span 1;
+  }
+}
+
+.principleHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.principleNum {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+}
+
+.principleTitle {
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.principleTagline {
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: var(--accent-dark);
+  line-height: 1.45;
+  margin-bottom: 0.75rem;
+}
+
+.principleDesc {
+  color: var(--text-muted);
+  font-size: 0.94rem;
+  line-height: 1.55;
+  flex: 1 1 auto;
+}
+
+/* ---------- Section 2 : LE FORMAT UNIQUE EN 1 SEULE LIGNE (STYLE V2) ---------- */
+.formatRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+@media (max-width: 900px) {
+  .formatRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .formatRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+.formatTile {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formatTile:hover {
+  transform: translateY(-2px);
+  border-color: #c8d8cf;
+  border-top-color: var(--accent-dark);
+  box-shadow: 0 10px 24px rgba(9, 52, 37, 0.05);
+}
+
+.tileNum {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.tileTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.tileDesc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-top: 0.25rem;
+}
+
+/* ---------- Section 3 : DÉROULEMENT (DIRECTION GRAPHIQUE « NOS PILIERS » V2 - FOND VERT) ---------- */
+.pacteSection {
+  background: var(--accent-deep); /* #093425 */
+  padding: 5.5rem 0;
+  margin: 4.5rem 0 3.5rem;
+}
+
+.labelMint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #8fd0ae;
+  margin-bottom: 0.9rem;
+}
+
+.labelMint::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #8fd0ae;
+  flex: none;
+}
+
+.h2White {
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff;
+  line-height: 1.12;
+}
+
+.introMint {
+  margin-top: 1rem;
+  color: #cfe3d8;
+  max-width: 44rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.pacteGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 3.5rem;
+}
+
+@media (max-width: 920px) {
+  .pacteGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.25rem 1.75rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .pacteGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pacteTile {
+  border-top: 2px solid rgba(143, 208, 174, 0.35);
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.pacteArt {
+  width: 100%;
+  max-width: 7.5rem;
+  height: 40px;
+  margin-bottom: 1.25rem;
+  overflow: visible;
+}
+
+.nearLlamaLight {
+  fill: #ffffff;
+}
+
+.farLlamaLight {
+  fill: rgba(207, 227, 216, 0.65);
+}
+
+.pacteNum {
+  display: block;
+  font-size: clamp(2.2rem, 4vw, 2.9rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #8fd0ae;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.pacteTile strong {
+  display: block;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  margin-bottom: 0.45rem;
+}
+
+.pacteTile span {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.wingBack {
+  fill: #8fd0ae;
+  opacity: 0.65;
+}
+
+.wingFront {
+  fill: #8fd0ae;
+}
+
+/* Animation vol lama ailé */
+.flyingLlama {
+  transform-origin: 18px 16px;
+  animation: llamaFlightBob 0.85s ease-in-out infinite alternate;
+}
+
+@keyframes llamaFlightBob {
+  0% { transform: translateY(-2.5px) rotate(-11deg); }
+  100% { transform: translateY(2.5px) rotate(-7deg); }
+}
+
+.llamaWings {
+  transform-origin: 200px 177px;
+  animation: wingFlutter 0.85s ease-in-out infinite alternate;
+}
+
+@keyframes wingFlutter {
+  0% { transform: rotate(2deg); }
+  100% { transform: rotate(-13deg); }
+}
+
+/* ---------- Section 4 : Les animateurs ---------- */
+.facilitationBox {
+  background: linear-gradient(135deg, #f4f8f5 0%, #edf5f0 100%);
+  border: 1px solid #d4e5db;
+  border-radius: var(--radius-lg);
+  padding: clamp(2rem, 3.5vw, 2.75rem);
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (max-width: 800px) {
+  .facilitationBox {
+    grid-template-columns: 1fr;
+  }
+}
+
+.facilitationText h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 0.65rem;
+}
+
+.facilitationText p {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin-bottom: 0.85rem;
+}
+
+.facilitationPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.pillItem {
+  background: #fff;
+  border: 1px solid #c7dccd;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent-dark);
+}
+
+.facilitationLlama {
+  width: 85px;
+  height: 85px;
+  flex-shrink: 0;
+  fill: var(--accent);
+}
+
+/* ---------- Section 5 : Tout le monde repart avec de la valeur ---------- */
+.valueGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  margin-top: 3rem;
+}
+
+@media (max-width: 760px) {
+  .valueGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.valueCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.valueHeaderBadge {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  margin-bottom: 0.85rem;
+}
+
+.valueCard h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.valueCard p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+}
+
+.valueList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: auto;
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+}
+
+.valueList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.checkIcon {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ---------- Section 6 : CTA Discord final ---------- */
+.ctaPanel {
+  background: var(--accent-deep);
+  border-radius: var(--radius-lg);
+  padding: clamp(2.5rem, 5vw, 4rem);
+  margin-top: 4.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2.5rem;
+  align-items: center;
+  color: #fff;
+}
+
+@media (max-width: 820px) {
+  .ctaPanel {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ctaLabel {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #8fd0ae;
+  margin-bottom: 0.75rem;
+}
+
+.ctaPanel h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.ctaPanel p {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.02rem;
+  line-height: 1.55;
+  max-width: 38rem;
+}
+
+.ctaBtnWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  align-items: flex-start;
+}
+
+.ctaDiscord {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: #fff;
+  color: var(--accent-dark);
+  font-size: 1.02rem;
+  font-weight: 700;
+  padding: 0.95rem 1.85rem;
+  border-radius: 999px;
+  transition: background 0.15s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.ctaDiscord:hover {
+  background: #e6f3ec;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.ctaDiscordIcon {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.ctaSub {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+}
