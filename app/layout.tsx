@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { Manrope } from "next/font/google"
 import "./globals.css"
 
@@ -28,14 +29,18 @@ export default function RootLayout({
       <body>
         <header className="site-header">
           <div className="container">
-            <Link href="/" className="logo">
-              Studio Lamarck
+            <Link href="/" className="logo" aria-label="Studio Lamarck">
+              <Image
+                src="/SLA-1.svg"
+                alt="Studio Lamarck"
+                width={148}
+                height={35}
+                priority
+                className="logo-img"
+              />
             </Link>
             <nav className="site-nav">
-              <Link href="/#piliers">Piliers</Link>
               <Link href="/jam-session">Jam Session</Link>
-              <Link href="/#parcours">Parcours</Link>
-              <Link href="/#projets">Projets</Link>
               <Link href="/#contact">Contact</Link>
             </nav>
           </div>
