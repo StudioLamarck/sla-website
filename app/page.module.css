@@ -30,6 +30,7 @@
 
 .bannerText {
   color: #cfe3d8;
+  text-align: center;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
