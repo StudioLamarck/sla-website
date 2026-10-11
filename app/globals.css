@@ -870,13 +870,24 @@ section > .container > p {
   }
 
   .site-header .container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
+    gap: 1rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+  }
+
+  .logo {
+    flex-shrink: 0;
+  }
+
+  .logo-img {
+    height: 26px;
   }
 
   .site-nav {
-    gap: 0.4rem 1.4rem;
+    flex-wrap: nowrap;
+    gap: 1.1rem;
+    font-size: 0.88rem;
+    white-space: nowrap;
   }
 
   .hero-actions .cta,
