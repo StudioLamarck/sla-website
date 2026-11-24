@@ -149,7 +149,7 @@ export default function JamCircle() {
                     <path
                       d="M -4.5,-9 h 9 a 6,6 0 0 1 6,6 a 6,6 0 0 1 -6,6 h -2.8 l -1.7,2.8 l -1.7,-2.8 h -2.8 a 6,6 0 0 1 -6,-6 a 6,6 0 0 1 6,-6 z"
                       fill="#ffffff"
-                      stroke="#111613"
+                      stroke="#151815"
                       strokeWidth="1.2"
                       strokeLinejoin="round"
                     />
@@ -163,7 +163,7 @@ export default function JamCircle() {
                     {speakerInfo.content === "idea" && (
                       <path
                         d="M -3,-5 h 6 M 0,-7 v -1.2 M -2.2,-2 h 4.4 M -1.2,-0.5 h 2.4"
-                        stroke="#008751"
+                        stroke="#00643c"
                         strokeWidth="1.2"
                         strokeLinecap="round"
                       />
@@ -171,16 +171,16 @@ export default function JamCircle() {
                     {speakerInfo.content === "exclaim" && (
                       <path
                         d="M 0,-6.5 v 3.5 M 0,-1 v 0.5"
-                        stroke="#008751"
+                        stroke="#00643c"
                         strokeWidth="1.4"
                         strokeLinecap="round"
                       />
                     )}
                     {speakerInfo.content === "chat" && (
                       <>
-                        <circle cx="-4" cy="-3" r="1.1" fill="#008751" />
-                        <circle cx="0" cy="-3" r="1.1" fill="#111613" />
-                        <circle cx="4" cy="-3" r="1.1" fill="#008751" />
+                        <circle cx="-4" cy="-3" r="1.1" fill="#00643c" />
+                        <circle cx="0" cy="-3" r="1.1" fill="#151815" />
+                        <circle cx="4" cy="-3" r="1.1" fill="#00643c" />
                       </>
                     )}
                   </g>

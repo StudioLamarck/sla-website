@@ -13,7 +13,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #8c928e;
+  color: var(--text-secondary);
   margin-bottom: -0.25rem;
 }
 
@@ -61,7 +61,7 @@
   height: 2.4rem;
   border-radius: 50%;
   overflow: hidden;
-  background: #f0f3f1;
+  background: var(--surface-tint);
   flex-shrink: 0;
   display: inline-flex;
   align-items: center;
@@ -118,15 +118,15 @@
   width: 1.75rem;
   height: 1.75rem;
   border-radius: 50%;
-  background: #f3f5f3;
-  color: #555d57;
-  transition: all 0.2s ease;
+  background: var(--surface-tint);
+  color: var(--forest-800);
+  transition: background-color var(--fast) var(--ease), color var(--fast) var(--ease), transform var(--base) var(--ease);
 }
 
 .socialLink:hover {
   background: var(--accent);
   color: #fff;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .socialIcon {

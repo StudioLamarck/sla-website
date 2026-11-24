@@ -121,46 +121,50 @@ const formatPiliers = [
 export default function JamSessionPage() {
   return (
     <div className={s.page}>
+      {/* HERO */}
+      <header className={s.heroBand}>
+        <div className={s.wrap}>
+          <section className={s.hero}>
+            <div className={s.heroText}>
+              <div className={s.badge}>
+                <span className={s.badgeDot} />
+                Notre méthode de Jam
+              </div>
+              <h1 className={s.h1}>Les sessions Jam</h1>
+              <p className={s.lead}>
+                Construire seul son produit, ça marche un temps. Les Jam Sessions
+                réunissent les builders pour débloquer leurs projets et célébrer
+                ce qui avance.
+              </p>
+              <p className={s.introText}>
+                Inspirées du codéveloppement et adaptées aux artisans du numérique :
+                zéro réunion corporate, zéro chronomètre anxiogène. Un atelier
+                ouvert pour avancer avec la force du collectif.
+              </p>
+              <div className={s.actions}>
+                <a
+                  href={DISCORD_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={s.btnPrimary}
+                >
+                  Rejoindre une Jam sur Discord
+                  <span aria-hidden="true">→</span>
+                </a>
+                <a href="#principes" className={s.btnGhost}>
+                  Les 5 principes
+                </a>
+              </div>
+            </div>
+
+            <div className={s.heroVisual}>
+              <JamCircle />
+            </div>
+          </section>
+        </div>
+      </header>
+
       <div className={s.wrap}>
-        {/* HERO */}
-        <section className={s.hero}>
-          <div className={s.heroText}>
-            <div className={s.badge}>
-              <span className={s.badgeDot} />
-              Notre méthode de Jam
-            </div>
-            <h1 className={s.h1}>Les sessions Jam</h1>
-            <p className={s.lead}>
-              Construire seul son produit, ça marche un temps. Les Jam Sessions
-              réunissent les builders pour débloquer leurs projets et célébrer
-              ce qui avance.
-            </p>
-            <p className={s.introText}>
-              Inspirées du codéveloppement et adaptées aux artisans du numérique :
-              zéro réunion corporate, zéro chronomètre anxiogène. Un atelier
-              ouvert pour avancer avec la force du collectif.
-            </p>
-            <div className={s.actions}>
-              <a
-                href={DISCORD_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={s.btnPrimary}
-              >
-                Rejoindre une Jam sur Discord
-                <span aria-hidden="true">→</span>
-              </a>
-              <a href="#principes" className={s.btnGhost}>
-                Les 5 principes
-              </a>
-            </div>
-          </div>
-
-          <div className={s.heroVisual}>
-            <JamCircle />
-          </div>
-        </section>
-
         {/* SECTION 1 : LES 5 PRINCIPES */}
         <section className={s.section} id="principes">
           <p className={s.label}>Philosophie</p>
