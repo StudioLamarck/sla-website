@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import Image from "next/image"
+import Logo from "./Logo"
 import { Manrope } from "next/font/google"
 import "./globals.css"
 
@@ -30,14 +30,7 @@ export default function RootLayout({
         <header className="site-header">
           <div className="container">
             <Link href="/" className="logo" aria-label="Studio Lamarck">
-              <Image
-                src="/SLA-1.svg"
-                alt="Studio Lamarck"
-                width={148}
-                height={35}
-                priority
-                className="logo-img"
-              />
+              <Logo />
             </Link>
             <nav className="site-nav">
               <Link href="/jam-session">Jam Session</Link>
@@ -48,10 +41,13 @@ export default function RootLayout({
         <main>{children}</main>
         <footer className="site-footer">
           <div className="container">
-            <span>
-              © {new Date().getFullYear()} Studio Lamarck — Tous droits
-              réservés
-            </span>
+            <div className="footer-brand">
+              <Logo />
+              <span>
+                © {new Date().getFullYear()} Studio Lamarck — Tous droits
+                réservés
+              </span>
+            </div>
             <div className="footer-links">
               <Link href="/jam-session">Jam Session</Link>
               <Link href="/mentions-legales">Mentions légales</Link>

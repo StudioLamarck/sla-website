@@ -183,7 +183,7 @@ export default function JamCircle() {
                     <path
                       d="M -4,-8 h 8 a 5.5,5.5 0 0 1 5.5,5.5 a 5.5,5.5 0 0 1 -5.5,5.5 h -2.5 l -1.5,2.4 l -1.5,-2.4 h -2.5 a 5.5,5.5 0 0 1 -5.5,-5.5 a 5.5,5.5 0 0 1 5.5,-5.5 z"
                       fill="#ffffff"
-                      stroke="#111613"
+                      stroke="#151815"
                       strokeWidth="1.15"
                       strokeLinejoin="round"
                     />

@@ -6,9 +6,14 @@ export const metadata: Metadata = {
 
 export default function MentionsLegalesPage() {
   return (
-    <div className="legal">
+    <>
+      <div className="page-band">
+        <div className="container">
+          <h1>Mentions légales</h1>
+        </div>
+      </div>
+      <div className="legal">
       <div className="container">
-        <h1>Mentions légales</h1>
 
         <h2>Éditeur du site</h2>
         <p>
@@ -72,5 +77,6 @@ export default function MentionsLegalesPage() {
         </p>
       </div>
     </div>
+    </>
   )
 }

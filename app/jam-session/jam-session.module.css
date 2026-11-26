@@ -1,5 +1,5 @@
 .page {
-  padding: 2.5rem 0 5rem;
+  padding: 0 0 6rem;
 }
 
 .wrap {
@@ -8,27 +8,36 @@
   padding: 0 1.5rem;
 }
 
-/* ---------- Badge & Hero ---------- */
+/* ---------- Hero : bande verte, texte blanc ---------- */
+.heroBand {
+  background: var(--surface-brand);
+  color: var(--white);
+  padding: 4.5rem 0 5rem;
+}
+
+.heroBand :focus-visible {
+  outline-color: var(--white);
+}
+
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.78rem;
+  gap: 0.75rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--accent);
-  background: var(--accent-soft);
-  padding: 0.35rem 0.85rem;
-  border-radius: 999px;
-  margin-bottom: 1.25rem;
+  color: var(--text-on-dark-muted);
+  background: var(--forest-800);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 1.75rem;
 }
 
 .badgeDot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
+  width: 8px;
+  height: 8px;
+  background: var(--forest-300);
 }
 
 .hero {
@@ -36,7 +45,6 @@
   grid-template-columns: 1fr 380px;
   gap: 3rem;
   align-items: center;
-  padding-bottom: 4.5rem;
 }
 
 @media (max-width: 960px) {
@@ -51,26 +59,26 @@
 }
 
 .h1 {
-  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-size: clamp(2.6rem, 6vw, 4.5rem);
   font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1.1;
-  color: var(--text);
-  margin-bottom: 1.25rem;
+  letter-spacing: -0.04em;
+  line-height: 1.04;
+  color: var(--white);
+  margin-bottom: 1.75rem;
 }
 
 .lead {
-  font-size: clamp(1.12rem, 2.1vw, 1.25rem);
+  font-size: clamp(1.125rem, 2.1vw, 1.25rem);
   font-weight: 500;
-  color: var(--text);
+  color: var(--white);
   line-height: 1.55;
   margin-bottom: 1rem;
 }
 
 .introText {
-  color: var(--text-muted);
-  font-size: 1.02rem;
-  line-height: 1.6;
+  color: var(--text-on-dark-muted);
+  font-size: 1rem;
+  line-height: 1.65;
 }
 
 .actions {
@@ -78,25 +86,25 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
-  margin-top: 1.75rem;
+  margin-top: 2.5rem;
 }
 
 .btnPrimary {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  background: var(--accent);
-  color: #fff;
-  padding: 0.85rem 1.6rem;
-  border-radius: 999px;
+  background: var(--white);
+  color: var(--forest-800);
+  padding: 1rem 2rem;
+  border-radius: var(--radius-pill);
   font-weight: 700;
-  font-size: 0.98rem;
-  transition: background 0.2s ease, transform 0.2s ease;
-  box-shadow: 0 4px 14px rgba(0, 100, 60, 0.18);
+  font-size: 1rem;
+  line-height: 1.6;
+  transition: background-color var(--fast) var(--ease), transform var(--base) var(--ease);
 }
 
 .btnPrimary:hover {
-  background: var(--accent-dark);
+  background: var(--forest-50);
   text-decoration: none;
   transform: translateY(-2px);
 }
@@ -106,19 +114,20 @@
   align-items: center;
   gap: 0.5rem;
   background: transparent;
-  color: var(--text);
-  border: 1px solid var(--border);
-  padding: 0.85rem 1.5rem;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 0.98rem;
-  transition: all 0.2s ease;
+  color: var(--white);
+  border: 1px solid rgba(200, 216, 207, 0.55);
+  padding: 1rem 2rem;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.6;
+  transition: border-color var(--fast) var(--ease), transform var(--base) var(--ease);
 }
 
 .btnGhost:hover {
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--white);
   text-decoration: none;
+  transform: translateY(-2px);
 }
 
 /* ---------- JamCircle Illustration & Animations ---------- */
@@ -130,11 +139,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 1.75rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  background: var(--surface-raised);
+  border-radius: var(--radius-4);
+  padding: 2rem;
 }
 
 .jamIllusSvg {
@@ -158,7 +165,6 @@
 .speakerLlama {
   fill: var(--accent);
   transition: fill 0.3s ease;
-  filter: drop-shadow(0 4px 6px rgba(0, 100, 60, 0.18));
 }
 
 .listenerLlama {
@@ -248,27 +254,31 @@
 .bubbleDot3 { animation-delay: 0.36s; }
 
 @keyframes cartoonDotWave {
-  0%, 100% { transform: translateY(0); fill: #111613; opacity: 0.85; }
-  35% { transform: translateY(-1.8px); fill: #008751; opacity: 1; }
-  70% { transform: translateY(0.3px); fill: #111613; opacity: 0.85; }
+  0%, 100% { transform: translateY(0); fill: #151815; opacity: 0.85; }
+  35% { transform: translateY(-1.8px); fill: #00643c; opacity: 1; }
+  70% { transform: translateY(0.3px); fill: #151815; opacity: 0.85; }
 }
 
 /* ---------- Sections communes ---------- */
+.section:first-child {
+  border-top: 0;
+}
+
 .section {
-  padding: 4.5rem 0;
-  border-top: 1px solid var(--border);
+  padding: 6rem 0;
+  border-top: 1px solid var(--border-default);
 }
 
 .label {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.6rem;
-  font-size: 0.78rem;
+  gap: 0.75rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--accent);
-  margin-bottom: 0.9rem;
+  color: var(--text-accent);
+  margin-bottom: 1rem;
 }
 
 .label::before {
@@ -280,19 +290,19 @@
 }
 
 .h2 {
-  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
   font-weight: 800;
   letter-spacing: -0.03em;
-  line-height: 1.15;
-  color: var(--text);
+  line-height: 1.12;
+  color: var(--text-primary);
 }
 
 .intro {
-  margin-top: 0.75rem;
-  color: var(--text-muted);
-  max-width: 44rem;
-  font-size: 1.05rem;
-  line-height: 1.6;
+  margin-top: 1.5rem;
+  color: var(--text-secondary);
+  max-width: 48rem;
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  line-height: 1.55;
 }
 
 /* ---------- Section 1 : 5 Principes en quinconce ---------- */
@@ -304,19 +314,19 @@
 }
 
 .principleCard {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background: var(--surface-raised);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-3);
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform var(--base) var(--ease), border-color var(--fast) var(--ease), box-shadow var(--base) var(--ease);
 }
 
 .principleCard:hover {
-  transform: translateY(-3px);
-  border-color: #c8d8cf;
-  box-shadow: 0 12px 30px rgba(9, 52, 37, 0.06);
+  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-card);
 }
 
 .principleCard:nth-child(1),
@@ -351,35 +361,36 @@
 }
 
 .principleNum {
-  font-size: 0.78rem;
-  font-weight: 800;
+  font-size: 0.75rem;
+  font-weight: 700;
   letter-spacing: 0.08em;
-  color: var(--accent);
-  background: var(--accent-soft);
-  padding: 0.25rem 0.6rem;
-  border-radius: 6px;
+  color: var(--forest-600);
+  background: var(--surface-tint);
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-2);
 }
 
 .principleTitle {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 800;
   letter-spacing: -0.015em;
-  color: var(--text);
+  line-height: 1.35;
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
 .principleTagline {
-  font-size: 0.96rem;
-  font-weight: 600;
-  color: var(--accent-dark);
-  line-height: 1.45;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--forest-800);
+  line-height: 1.5;
   margin-bottom: 0.75rem;
 }
 
 .principleDesc {
-  color: var(--text-muted);
-  font-size: 0.94rem;
-  line-height: 1.55;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
   flex: 1 1 auto;
 }
 
@@ -404,88 +415,88 @@
 }
 
 .formatTile {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-top: 3px solid var(--accent);
-  border-radius: var(--radius);
-  padding: 1.75rem 1.5rem;
+  background: var(--surface-raised);
+  border: 1px solid var(--border-default);
+  border-top: 3px solid var(--border-accent);
+  border-radius: var(--radius-3);
+  padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform var(--base) var(--ease), border-color var(--fast) var(--ease), box-shadow var(--base) var(--ease);
 }
 
 .formatTile:hover {
   transform: translateY(-2px);
-  border-color: #c8d8cf;
-  border-top-color: var(--accent-dark);
-  box-shadow: 0 10px 24px rgba(9, 52, 37, 0.05);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-card);
+  border-top-color: var(--forest-800);
 }
 
 .tileNum {
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--text-accent);
   text-transform: uppercase;
   margin-bottom: 0.25rem;
 }
 
 .tileTitle {
-  font-size: 1.15rem;
+  font-size: 1.125rem;
   font-weight: 800;
-  color: var(--text);
-  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  letter-spacing: -0.015em;
 }
 
 .tileDesc {
-  font-size: 0.92rem;
-  color: var(--text-muted);
-  line-height: 1.5;
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
   margin-top: 0.25rem;
 }
 
 /* ---------- Section 3 : DÉROULEMENT (DIRECTION GRAPHIQUE « NOS PILIERS » V2 - FOND VERT) ---------- */
 .pacteSection {
-  background: var(--accent-deep); /* #093425 */
-  padding: 5.5rem 0;
-  margin: 4.5rem 0 3.5rem;
+  background: var(--surface-deep);
+  padding: 6rem 0;
+  margin: 2rem 0 0;
 }
 
 .labelMint {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  font-size: 0.78rem;
+  gap: 0.75rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: #8fd0ae;
-  margin-bottom: 0.9rem;
+  letter-spacing: 0.14em;
+  color: var(--text-on-dark-muted);
+  margin-bottom: 1rem;
 }
 
 .labelMint::before {
   content: "";
   width: 8px;
   height: 8px;
-  background: #8fd0ae;
+  background: var(--forest-300);
   flex: none;
 }
 
 .h2White {
-  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
   font-weight: 800;
   letter-spacing: -0.03em;
-  color: #fff;
+  color: var(--white);
   line-height: 1.12;
 }
 
 .introMint {
-  margin-top: 1rem;
-  color: #cfe3d8;
-  max-width: 44rem;
-  font-size: 1.05rem;
-  line-height: 1.6;
+  margin-top: 1.5rem;
+  color: var(--text-on-dark-muted);
+  max-width: 48rem;
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  line-height: 1.55;
 }
 
 .pacteGrid {
@@ -509,7 +520,7 @@
 }
 
 .pacteTile {
-  border-top: 2px solid rgba(143, 208, 174, 0.35);
+  border-top: 1px solid rgba(200, 216, 207, 0.25);
   padding-top: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -529,41 +540,41 @@
 }
 
 .farLlamaLight {
-  fill: rgba(207, 227, 216, 0.65);
+  fill: var(--forest-300);
 }
 
 .pacteNum {
   display: block;
-  font-size: clamp(2.2rem, 4vw, 2.9rem);
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
   font-weight: 800;
   letter-spacing: -0.04em;
-  color: #8fd0ae;
+  color: var(--forest-300);
   line-height: 1;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .pacteTile strong {
   display: block;
-  color: #fff;
-  font-size: 1.2rem;
+  color: var(--white);
+  font-size: 1.125rem;
   font-weight: 800;
   letter-spacing: -0.015em;
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.5rem;
 }
 
 .pacteTile span {
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.94rem;
-  line-height: 1.55;
+  color: var(--text-on-dark-muted);
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .wingBack {
-  fill: #8fd0ae;
+  fill: var(--forest-300);
   opacity: 0.65;
 }
 
 .wingFront {
-  fill: #8fd0ae;
+  fill: var(--forest-300);
 }
 
 /* Animation vol lama ailé */
@@ -589,10 +600,9 @@
 
 /* ---------- Section 4 : Les animateurs ---------- */
 .facilitationBox {
-  background: linear-gradient(135deg, #f4f8f5 0%, #edf5f0 100%);
-  border: 1px solid #d4e5db;
-  border-radius: var(--radius-lg);
-  padding: clamp(2rem, 3.5vw, 2.75rem);
+  background: var(--surface-tint);
+  border-radius: var(--radius-4);
+  padding: clamp(2rem, 4vw, 3rem);
   margin-top: 3rem;
   display: grid;
   grid-template-columns: 1fr auto;
@@ -607,18 +617,19 @@
 }
 
 .facilitationText h3 {
-  font-size: 1.35rem;
+  font-size: clamp(1.375rem, 2.4vw, 1.75rem);
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: var(--text);
-  margin-bottom: 0.65rem;
+  line-height: 1.25;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
 }
 
 .facilitationText p {
-  color: var(--text-muted);
-  font-size: 0.98rem;
-  line-height: 1.6;
-  margin-bottom: 0.85rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.65;
+  margin-bottom: 0.75rem;
 }
 
 .facilitationPills {
@@ -629,20 +640,20 @@
 }
 
 .pillItem {
-  background: #fff;
-  border: 1px solid #c7dccd;
-  padding: 0.35rem 0.8rem;
-  border-radius: 999px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--accent-dark);
+  background: var(--surface-raised);
+  border: 1px solid var(--border-strong);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--forest-800);
 }
 
 .facilitationLlama {
-  width: 85px;
-  height: 85px;
+  width: 96px;
+  height: 96px;
   flex-shrink: 0;
-  fill: var(--accent);
+  fill: var(--forest-600);
 }
 
 /* ---------- Section 5 : Tout le monde repart avec de la valeur ---------- */
@@ -660,40 +671,42 @@
 }
 
 .valueCard {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 2.25rem 2rem;
+  background: var(--surface-raised);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-3);
+  padding: 2.5rem 2rem;
   display: flex;
   flex-direction: column;
 }
 
 .valueHeaderBadge {
   display: inline-block;
-  font-size: 0.74rem;
+  align-self: flex-start;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-  background: var(--accent-soft);
+  letter-spacing: 0.14em;
+  color: var(--forest-600);
+  background: var(--surface-tint);
   padding: 0.3rem 0.65rem;
-  border-radius: 6px;
-  margin-bottom: 0.85rem;
+  border-radius: var(--radius-2);
+  margin-bottom: 1rem;
 }
 
 .valueCard h3 {
   font-size: 1.25rem;
   font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--text);
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
 .valueCard p {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  line-height: 1.55;
-  margin-bottom: 1.25rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
 .valueList {
@@ -719,7 +732,7 @@
   width: 17px;
   height: 17px;
   fill: none;
-  stroke: var(--accent);
+  stroke: var(--forest-600);
   stroke-width: 2.4;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -728,16 +741,28 @@
 }
 
 /* ---------- Section 6 : CTA Discord final ---------- */
+.ctaPanel :focus-visible {
+  outline-color: var(--white);
+}
+
+.ctaLabel::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: var(--forest-300);
+  flex: none;
+}
+
 .ctaPanel {
-  background: var(--accent-deep);
-  border-radius: var(--radius-lg);
-  padding: clamp(2.5rem, 5vw, 4rem);
-  margin-top: 4.5rem;
+  background: var(--surface-brand);
+  border-radius: var(--radius-4);
+  padding: clamp(2.5rem, 6vw, 4.5rem);
+  margin-top: 2rem;
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 2.5rem;
   align-items: center;
-  color: #fff;
+  color: var(--white);
 }
 
 @media (max-width: 820px) {
@@ -747,27 +772,30 @@
 }
 
 .ctaLabel {
-  font-size: 0.76rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: #8fd0ae;
-  margin-bottom: 0.75rem;
+  letter-spacing: 0.14em;
+  color: var(--text-on-dark-muted);
+  margin-bottom: 1rem;
 }
 
 .ctaPanel h2 {
-  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
   font-weight: 800;
   letter-spacing: -0.03em;
-  line-height: 1.15;
-  color: #fff;
-  margin-bottom: 0.75rem;
+  line-height: 1.12;
+  color: var(--white);
+  margin-bottom: 1rem;
 }
 
 .ctaPanel p {
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 1.02rem;
-  line-height: 1.55;
+  color: var(--text-on-dark-muted);
+  font-size: clamp(1.0625rem, 2vw, 1.125rem);
+  line-height: 1.6;
   max-width: 38rem;
 }
 
@@ -781,21 +809,22 @@
 .ctaDiscord {
   display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
-  background: #fff;
-  color: var(--accent-dark);
-  font-size: 1.02rem;
+  gap: 0.75rem;
+  background: var(--white);
+  color: var(--forest-800);
+  font-size: 1.0625rem;
   font-weight: 700;
-  padding: 0.95rem 1.85rem;
-  border-radius: 999px;
-  transition: background 0.15s ease, transform 0.15s ease;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-pill);
+  transition: background-color var(--fast) var(--ease), transform var(--base) var(--ease), box-shadow var(--base) var(--ease);
   white-space: nowrap;
 }
 
 .ctaDiscord:hover {
-  background: #e6f3ec;
+  background: var(--forest-50);
   text-decoration: none;
   transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
 }
 
 .ctaDiscordIcon {
@@ -806,6 +835,31 @@
 }
 
 .ctaSub {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-on-dark-muted);
+}
+
+@media (max-width: 880px) {
+  .heroBand {
+    padding: 3rem 0 3.5rem;
+  }
+
+  .section,
+  .pacteSection {
+    padding: 4rem 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .actions .btnPrimary,
+  .actions .btnGhost,
+  .ctaDiscord {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ctaBtnWrap {
+    align-items: stretch;
+  }
 }
